@@ -7,7 +7,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <WebView
-        source={{ uri: 'https://www.patient.dr2u.es' }}
+        source={{ uri: 'https://www.google.es' }}
         style={{ flex: 1 }}
         originWhitelist={['*']} // Permite todas las URLs, considera restringirlo por seguridad
         startInLoadingState={true}
