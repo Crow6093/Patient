@@ -72,6 +72,66 @@ Esto te permite ver la app en tu emulador o teléfono mientras desarrollas.
     ```
     La app se compilará y se instalará. Podrás ver los cambios que hagas en el código reflejados casi al instante.
 
+## 🎨 Personalizar Nombre e Icono de la App (Android)
+
+### Cambiar el Nombre de la Aplicación
+
+El nombre que se muestra debajo del icono de la app en el dispositivo se define en el archivo de strings de Android.
+
+1.  **Abre el archivo `strings.xml`:**
+    Navega a `android/app/src/main/res/values/strings.xml`.
+2.  **Modifica el valor de `app_name`:**
+    Busca la línea que se parece a esto:
+    ```xml
+    <string name="app_name">NombreActualDeTuApp</string>
+    ```
+    Cambia `NombreActualDeTuApp` por el nombre que deseas. Por ejemplo:
+    ```xml
+    <string name="app_name">Patient DR2U</string>
+    ```
+3.  **Guarda el archivo.** La próxima vez que compiles la aplicación, el nuevo nombre debería aparecer.
+
+### Cambiar el Icono de la Aplicación
+
+Para cambiar el icono, necesitarás reemplazar los archivos de imagen existentes en las carpetas `mipmap` de Android. Es importante proporcionar iconos en diferentes densidades para asegurar que se vean bien en todos los dispositivos.
+
+1.  **Prepara tus nuevos iconos:**
+    * Necesitarás versiones de tu icono en diferentes tamaños (generalmente PNG). Las carpetas `mipmap` comunes y sus tamaños típicos son:
+        * `mipmap-mdpi`: 48x48 px
+        * `mipmap-hdpi`: 72x72 px
+        * `mipmap-xhdpi`: 96x96 px
+        * `mipmap-xxhdpi`: 144x144 px
+        * `mipmap-xxxhdpi`: 192x192 px
+    * También es recomendable crear iconos adaptativos para Android 8.0 (API nivel 26) y superior. Esto implica proporcionar un icono de primer plano (foreground) y uno de fondo (background). Android Studio tiene una herramienta para generar esto fácilmente.
+
+2.  **Usando Android Studio (Recomendado para iconos adaptativos):**
+    * Abre la carpeta `android` de tu proyecto React Native con Android Studio (selecciona "Open an existing Android Studio project" y elige la carpeta `android`).
+    * En el panel de proyecto de Android Studio (vista "Android"), haz clic derecho en la carpeta `app` o `res`.
+    * Selecciona `New` > `Image Asset`.
+    * En la ventana "Configure Image Asset":
+        * **Icon type**: Selecciona `Launcher Icons (Adaptive and Legacy)`.
+        * **Name**: Puedes dejarlo como `ic_launcher`.
+        * **Foreground Layer**: Elige tu imagen de primer plano (por ejemplo, tu logo sin fondo).
+        * **Background Layer**: Elige un color de fondo o una imagen de fondo.
+        * Ajusta el tamaño y la forma si es necesario.
+        * Haz clic en `Next` y luego en `Finish`. Esto generará y reemplazará los iconos en todas las carpetas `mipmap` necesarias.
+
+3.  **Manualmente (Si no usas iconos adaptativos o quieres reemplazar directamente):**
+    * Navega a la carpeta `android/app/src/main/res/`.
+    * Encontrarás varias carpetas `mipmap-*` (ej: `mipmap-hdpi`, `mipmap-mdpi`, etc.).
+    * Dentro de cada una de estas carpetas, verás archivos de iconos como `ic_launcher.png` y `ic_launcher_round.png`.
+    * Reemplaza estos archivos con tus propios iconos del mismo nombre y tamaño correspondiente a cada densidad.
+
+4.  **Limpia y Reconstruye:**
+    Después de cambiar el nombre o los iconos, es una buena idea limpiar el proyecto y reconstruirlo:
+    ```bash
+    cd android
+    gradlew clean
+    cd ..
+    npx react-native run-android 
+    ```
+    O si vas a generar un APK de release, sigue los pasos de la sección de abajo.
+
 ## 📦 Generar el Archivo APK para Producción (Paso a Paso)
 
 Este es el proceso para crear el archivo `.apk` que puedes instalar directamente en dispositivos Android o subir a tiendas.
