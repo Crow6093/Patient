@@ -147,6 +147,7 @@ Este es el proceso para crear el archivo `.apk` que puedes instalar directamente
 Esto elimina archivos de compilaciones previas para evitar posibles conflictos.
 * Abre tu terminal y navega a la carpeta `android` dentro de tu proyecto:
     ```bash
+    npx @react-native-community/cli init
     cd android
     ```
 * Ejecuta el comando de limpieza:
