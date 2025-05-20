@@ -126,7 +126,7 @@ Para cambiar el icono, necesitarás reemplazar los archivos de imagen existentes
     Después de cambiar el nombre o los iconos, es una buena idea limpiar el proyecto y reconstruirlo:
     ```bash
     cd android
-    gradlew clean
+    ./gradlew clean
     cd ..
     npx react-native run-android 
     ```
