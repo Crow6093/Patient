@@ -1,6 +1,6 @@
 # Proyecto React Native con WebView - Patient App
 
-Esta aplicación React Native muestra el contenido de `https://www.patient.dr2u.es` utilizando un componente WebView.
+Esta aplicación React Native muestra el contenido de `https://www.google.es` utilizando un componente WebView.
 
 ## 🎯 Requisitos Previos
 
